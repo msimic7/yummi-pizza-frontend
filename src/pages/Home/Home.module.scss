@@ -4,13 +4,15 @@
     min-height: 100vh;
     height: auto;
     width: 100vw;
-    background: url("../../resources/images/homeBg.jpg") no-repeat center/cover;
+    max-width: 100%;
+    background: url("../../resources/images/homeBg2.jpg") no-repeat top/cover;
 }
 
 .ordernow {
     display: flex;
     min-height: 500px;
     height: calc(100vh - 80px);
+    display: none;
 
     &__content {
         flex-basis: 50%;
@@ -19,8 +21,8 @@
         flex-direction: column;
         padding: 16px;
         align-items: center;
-        justify-content: center;
-        margin-left: auto;
+        margin-top: 100px;
+        margin-right: auto;
 
         & h1 {
             font-size: 104px;
