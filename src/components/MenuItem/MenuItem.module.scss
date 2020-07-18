@@ -1,0 +1,58 @@
+.card {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 150px;
+
+    & img {
+        height: 300px;
+        width: 300px;
+        margin-right: 24px;
+    }
+
+    & .pizza__name {
+        font-size: 52px;
+        width: 100%;
+        margin-left: 96px;
+    }
+
+    & .pizza__info {
+        display: flex;
+        width: 140px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & .pizza__price {
+            font-size: 56px;
+            margin-bottom: auto;
+            margin-top: 20px;
+            margin-right: auto;
+        }
+        & button {
+            height: 60px;
+            width: 140px;
+            font-size: 24px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 48px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 1);
+
+            &:hover {
+                background: #e27e13;
+                box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 1);
+                color: black;
+            }
+
+            &:active {
+                background: rgba(0, 0, 0, 0.1);
+                color: #f8f2ea;
+                box-shadow: none;
+            }
+        }
+    }
+}
