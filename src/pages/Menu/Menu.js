@@ -22,7 +22,7 @@ const Menu = () => {
 
     useEffect(() => {
         const getMenuData = async () => {
-            await fetch("http://localhost:8000/api/pizzas", {
+            await fetch("https://yummi-pizza-back.herokuapp.com/api/pizzas", {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
