@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Menu.module.scss";
 import Nav from "../../components/Nav";
 import MenuItem from "../../components/MenuItem";
@@ -8,13 +9,12 @@ import { menuUpdateData } from "../../store/menu";
 
 const Menu = () => {
     const dispatch = useDispatch();
-    const cartCount = useSelector((state) => state.cart.cartCount);
     const menuData = useSelector((state) => state.menu.menuData);
-    const cartOrder = useSelector((state) => state.cart.cartOrder);
-
-    const goToOrder = () => {
-        console.log(cartOrder);
-    };
+    const cartCount = useSelector((state) => state.cart.cartCount);
+    const currencyType = useSelector((state) => state.currency.currencyType);
+    const currencyConversionConst = useSelector(
+        (state) => state.currency.currencyConversionConst
+    );
 
     const changeCurrency = (curr) => {
         dispatch(currencyUpdateType(curr));
@@ -29,27 +29,51 @@ const Menu = () => {
                 quantity: 1,
             },
             {
-                id: "asdasd2132dw22",
+                id: "asdasdfrr2132dw22",
                 name: "Margherita",
                 price: 5.48,
                 quantity: 1,
             },
             {
-                id: "asdasd2132dw21",
+                id: "asdasd2ssd132dw21",
                 name: "Margherita",
                 price: 19.49,
                 quantity: 1,
             },
             {
-                id: "asdasd2132dw232",
+                id: "asdasd2132ddqfjdw232",
                 name: "Margherita",
                 price: 13,
                 quantity: 1,
             },
             {
-                id: "asdasd213223dw2",
+                id: "asdasdio21dgdfg3223dw2",
                 name: "Margherita",
                 price: 6,
+                quantity: 1,
+            },
+            {
+                id: "asdasdio2132vb23dw2",
+                name: "Margherita",
+                price: 7,
+                quantity: 1,
+            },
+            {
+                id: "asdasdio21sssawq3223dw2",
+                name: "Margherita",
+                price: 6.5,
+                quantity: 1,
+            },
+            {
+                id: "asdasdiodasdasd213223dw2",
+                name: "Margherita",
+                price: 9.1,
+                quantity: 1,
+            },
+            {
+                id: "asdasdio21saaaa3223dw2",
+                name: "Margherita",
+                price: 13.5,
                 quantity: 1,
             },
         ];
@@ -59,9 +83,11 @@ const Menu = () => {
 
     return (
         <div className={styles.layout}>
-            <div className={styles.cart} onClick={goToOrder}>
-                <div className={styles.cart__item__count}>{cartCount}</div>
-            </div>
+            <Link to="/cart">
+                <div className={styles.cart}>
+                    <div className={styles.cart__item__count}>{cartCount}</div>
+                </div>
+            </Link>
 
             <div className={styles.currency__picker}>
                 <div>
@@ -69,7 +95,7 @@ const Menu = () => {
                         type="radio"
                         name="currency"
                         id="usd"
-                        defaultChecked
+                        defaultChecked={currencyType === "usd" ? true : false}
                     ></input>
                     <label
                         htmlFor="usd"
@@ -79,7 +105,12 @@ const Menu = () => {
                     </label>
                 </div>
                 <div>
-                    <input type="radio" name="currency" id="eur"></input>
+                    <input
+                        type="radio"
+                        name="currency"
+                        id="eur"
+                        defaultChecked={currencyType === "eur" ? true : false}
+                    ></input>
                     <label
                         htmlFor="eur"
                         onClick={(e) => changeCurrency(e.target.htmlFor)}
@@ -100,7 +131,7 @@ const Menu = () => {
                         name={e.name}
                         price={e.price}
                         quantity={e.quantity}
-                        conversionConst={0.88}
+                        conversionConst={currencyConversionConst}
                     />
                 ))}
             </div>
