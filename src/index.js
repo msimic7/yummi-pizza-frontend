@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
 import Cart from "./pages/Cart";
+import Order from "./pages/Order";
 import store from "./store";
 import "normalize.css";
 import "./index.scss";
@@ -25,6 +26,9 @@ ReactDOM.render(
                 </Route>
                 <Route path="/cart">
                     <Cart />
+                </Route>
+                <Route path="/order">
+                    <Order />
                 </Route>
             </Switch>
         </Router>
