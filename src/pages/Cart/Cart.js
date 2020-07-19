@@ -21,37 +21,6 @@ const Order = () => {
 
     return (
         <div className={styles.layout}>
-            <div className={styles.currency__picker}>
-                <div>
-                    <input
-                        type="radio"
-                        name="currency"
-                        id="usd"
-                        defaultChecked={currencyType === "usd" ? true : false}
-                    ></input>
-                    <label
-                        htmlFor="usd"
-                        onClick={(e) => changeCurrency(e.target.htmlFor)}
-                    >
-                        &#36;
-                    </label>
-                </div>
-                <div>
-                    <input
-                        type="radio"
-                        name="currency"
-                        id="eur"
-                        defaultChecked={currencyType === "eur" ? true : false}
-                    ></input>
-                    <label
-                        htmlFor="eur"
-                        onClick={(e) => changeCurrency(e.target.htmlFor)}
-                    >
-                        &euro;
-                    </label>
-                </div>
-            </div>
-
             <Nav />
             <div className={styles.cart__h1}>CART</div>
 
@@ -63,6 +32,44 @@ const Order = () => {
                     <div className={styles.cart__order__empty}>NO ITEMS</div>
                 ) : (
                     <>
+                        <div className={styles.currency__picker}>
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="currency"
+                                    id="usd"
+                                    defaultChecked={
+                                        currencyType === "usd" ? true : false
+                                    }
+                                ></input>
+                                <label
+                                    htmlFor="usd"
+                                    onClick={(e) =>
+                                        changeCurrency(e.target.htmlFor)
+                                    }
+                                >
+                                    &#36;
+                                </label>
+                            </div>
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="currency"
+                                    id="eur"
+                                    defaultChecked={
+                                        currencyType === "eur" ? true : false
+                                    }
+                                ></input>
+                                <label
+                                    htmlFor="eur"
+                                    onClick={(e) =>
+                                        changeCurrency(e.target.htmlFor)
+                                    }
+                                >
+                                    &euro;
+                                </label>
+                            </div>
+                        </div>
                         <div className={styles.cart__order__total__price}>
                             <div className={styles.total}>
                                 <p>

@@ -1,3 +1,6 @@
+$breakpoint-tablet: 875px;
+$breakpoint-mobile: 575px;
+
 .layout {
     overflow-x: hidden;
     width: 100vw;
@@ -56,12 +59,12 @@
     height: 96px;
     width: 120px;
     position: fixed;
-    top: 96px;
+    top: 104px;
     right: 32px;
     background: url("../../resources/images/cart.png") no-repeat center/contain;
     cursor: pointer;
 
-    & .cart__item__count {
+    &__item__count {
         padding: 0 4px;
         font-size: 32px;
         background: #eb993f;
@@ -94,4 +97,57 @@
     align-items: center;
     justify-content: center;
     padding-top: 100px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .menu__h1 {
+        font-size: 80px;
+        margin: 32px 0;
+    }
+    .cart {
+        height: 64px;
+        width: 96px;
+        top: 128px;
+        right: 16px;
+
+        &__item__count {
+            font-size: 20px;
+        }
+    }
+
+    .currency__picker {
+        width: 80px;
+        height: 32px;
+        font-size: 32px;
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .menu__h1 {
+        font-size: 72px;
+        margin: 32px 0;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 100px;
+        align-items: center;
+        justify-content: center;
+        padding-top: 48px;
+    }
+
+    .cart {
+        top: 320px;
+        right: 16px;
+        position: absolute;
+    }
+
+    .currency__picker {
+        position: absolute;
+        top: 340px;
+        left: 24px;
+    }
 }

@@ -1,3 +1,6 @@
+$breakpoint-tablet: 1020px;
+$breakpoint-mobile: 470px;
+
 .layout {
     overflow-x: hidden;
     width: 100vw;
@@ -126,6 +129,30 @@
                     box-shadow: none;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .cart {
+        &__h1 {
+            font-size: 88px;
+        }
+
+        &__order__empty {
+            font-size: 32px;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .cart {
+        &__h1 {
+            font-size: 72px;
+        }
+
+        &__order__empty {
+            font-size: 24px;
         }
     }
 }
