@@ -6,6 +6,9 @@ import {
     REMOVE_ORDER,
     PRICE_INCREASE,
     PRICE_DECREASE,
+    CLEAR_COUNT,
+    CLEAR_ORDER,
+    CLEAR_TOTAL_PRICE,
 } from "./constants";
 
 const cartCountReducer = (state = 0, action) => {
@@ -14,6 +17,9 @@ const cartCountReducer = (state = 0, action) => {
             return ++state;
         case COUNT_DECREMENT:
             return --state;
+        case CLEAR_COUNT: {
+            return 0;
+        }
         default:
             return state;
     }
@@ -61,6 +67,9 @@ const cartOrderReducer = (state = [], action) => {
 
             return newOrder;
         }
+        case CLEAR_ORDER: {
+            return [];
+        }
         default:
             return state;
     }
@@ -72,6 +81,9 @@ const cartTotalPriceReducer = (state = 0, action) => {
             return state + action.payload;
         case PRICE_DECREASE:
             return state - action.payload;
+        case CLEAR_TOTAL_PRICE: {
+            return 0;
+        }
         default:
             return state;
     }
@@ -97,6 +109,18 @@ export const cartAddOrder = (orderItem) => {
 
 export const cartRemoveOrder = (orderItem) => {
     return { type: REMOVE_ORDER, payload: orderItem };
+};
+
+export const cartClearOrder = () => {
+    return { type: CLEAR_ORDER };
+};
+
+export const cartClearCount = () => {
+    return { type: CLEAR_COUNT };
+};
+
+export const cartClearTotalPrice = () => {
+    return { type: CLEAR_TOTAL_PRICE };
 };
 
 export const cartTotalPriceIncrease = (itemPrice) => {
