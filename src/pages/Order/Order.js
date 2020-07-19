@@ -19,6 +19,9 @@ const Order = () => {
     const onSubmit = (data, e) => {
         e.preventDefault();
 
+        // POST order to the server
+        console.log(data);
+
         setSubmitted(true);
 
         dispatch(cartClearOrder());

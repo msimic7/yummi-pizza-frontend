@@ -21,64 +21,20 @@ const Menu = () => {
     };
 
     useEffect(() => {
-        const testData = [
-            {
-                id: "asdasd2132dw2",
-                name: "Margherita",
-                price: 9.4,
-                quantity: 1,
-            },
-            {
-                id: "asdasdfrr2132dw22",
-                name: "Margherita",
-                price: 5.48,
-                quantity: 1,
-            },
-            {
-                id: "asdasd2ssd132dw21",
-                name: "Margherita",
-                price: 19.49,
-                quantity: 1,
-            },
-            {
-                id: "asdasd2132ddqfjdw232",
-                name: "Margherita",
-                price: 13,
-                quantity: 1,
-            },
-            {
-                id: "asdasdio21dgdfg3223dw2",
-                name: "Margherita",
-                price: 6,
-                quantity: 1,
-            },
-            {
-                id: "asdasdio2132vb23dw2",
-                name: "Margherita",
-                price: 7,
-                quantity: 1,
-            },
-            {
-                id: "asdasdio21sssawq3223dw2",
-                name: "Margherita",
-                price: 6.5,
-                quantity: 1,
-            },
-            {
-                id: "asdasdiodasdasd213223dw2",
-                name: "Margherita",
-                price: 9.1,
-                quantity: 1,
-            },
-            {
-                id: "asdasdio21saaaa3223dw2",
-                name: "Margherita",
-                price: 13.5,
-                quantity: 1,
-            },
-        ];
-
-        dispatch(menuUpdateData(testData));
+        const getMenuData = async () => {
+            await fetch("http://localhost:8000/api/pizzas", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    dispatch(menuUpdateData(data.data));
+                });
+        };
+        getMenuData();
+        // eslint-disable-next-line
     }, []);
 
     return (
