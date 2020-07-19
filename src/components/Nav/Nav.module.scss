@@ -1,9 +1,26 @@
+$breakpoint-tablet: 875px;
+$breakpoint-mobile: 575px;
+
 .nav {
     width: 100vw;
     height: 80px;
     padding: 0 32px;
     display: flex;
     align-items: center;
+
+    .home__link {
+        margin-right: auto;
+        list-style: none;
+
+        & a {
+            text-decoration: none;
+            font-size: 24px;
+
+            &:hover {
+                color: #e27e13;
+            }
+        }
+    }
 
     .links {
         margin-left: auto;
@@ -19,12 +36,40 @@
             }
 
             & a:hover {
-                color: #df4a00;
+                color: #e27e13;
             }
 
             & a {
                 text-decoration: none;
                 font-size: 24px;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .nav {
+        width: 100vw;
+        height: auto;
+        padding: 0 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .home__link {
+            margin: 16px auto;
+            list-style: none;
+        }
+
+        .links {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & li {
+                list-style: none;
+                margin: 8px 0;
             }
         }
     }

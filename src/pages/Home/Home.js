@@ -6,7 +6,7 @@ import Nav from "../../components/Nav";
 const Home = () => {
     return (
         <div className={styles.home}>
-            <Nav />
+            <Nav isHome={true} />
             <div className={styles.ordernow}>
                 <div className={styles.ordernow__content}>
                     <h1>YummiPizza</h1>

@@ -1,3 +1,6 @@
+$breakpoint-tablet: 1020px;
+$breakpoint-mobile: 470px;
+
 .home {
     overflow: hidden;
     overflow-y: auto;
@@ -30,24 +33,74 @@
 
         & p {
             margin: 0 0 32px 0;
-            font-size: 28px;
+            font-size: 24px;
         }
 
         & button {
             height: 64px;
-            width: 192px;
-            color: #0b0b0b;
-            background: #df4a00;
+            width: 160px;
             font-size: 24px;
+            border-radius: 8px;
+            background: #d36122;
+            color: #000;
+            cursor: pointer;
             border: none;
             outline: none;
-            cursor: pointer;
-            font-weight: 600;
-            border-radius: 4px;
-        }
+            padding: 8px;
+            box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 1);
 
-        & button:hover {
-            background: #f15b10;
+            &:hover {
+                background: #853503;
+            }
+
+            &:active {
+                background: rgba(133, 53, 3, 0.1);
+                color: #f8f2ea;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .ordernow {
+        &__content {
+            & h1 {
+                font-size: 80px;
+            }
+
+            & p {
+                font-size: 24px;
+            }
+
+            & button {
+                height: 36px;
+                width: 120px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .ordernow {
+        &__content {
+            flex-basis: 100%;
+            padding: 16px;
+
+            & h1 {
+                font-size: 48px;
+            }
+
+            & p {
+                font-size: 16px;
+            }
+
+            & button {
+                height: 24px;
+                width: 96px;
+                font-size: 12px;
+                padding: 4px;
+            }
         }
     }
 }

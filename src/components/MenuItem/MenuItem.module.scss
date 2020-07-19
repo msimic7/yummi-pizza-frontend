@@ -1,3 +1,6 @@
+$breakpoint-tablet: 875px;
+$breakpoint-mobile: 575px;
+
 .card {
     width: 600px;
     height: 400px;
@@ -53,6 +56,59 @@
                 color: #f8f2ea;
                 box-shadow: none;
             }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .card {
+        width: 600px;
+        height: 340px;
+        justify-content: flex-start;
+        margin-left: 36px;
+        margin-bottom: 104px;
+
+        & img {
+            height: 240px;
+            width: 240px;
+            margin-right: 16px;
+        }
+
+        & .pizza__name {
+            font-size: 48px;
+            margin-left: 0;
+        }
+
+        & .pizza__info {
+            width: 104px;
+
+            & .pizza__price {
+                font-size: 48px;
+            }
+            & button {
+                height: 48px;
+                width: 120px;
+                font-size: 20px;
+                margin-bottom: 64px;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-mobile) {
+    .card {
+        width: 400px;
+        height: 300px;
+        margin-left: 0;
+        margin-bottom: 80px;
+
+        & img {
+            height: 180px;
+            width: 180px;
+        }
+
+        & .pizza__name {
+            font-size: 44px;
         }
     }
 }
