@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Chelsea Market";
+    src: url("./resources/fonts/CabinSketch-Bold.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #f8f2ea;
+    font-family: "Chelsea Market", cursive;
+}

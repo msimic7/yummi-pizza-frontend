@@ -1,0 +1,9 @@
+export const COUNT_INCREMENT = "cart/COUNT_INCREMENT";
+export const COUNT_DECREMENT = "cart/COUNT_DECREMENT";
+export const CLEAR_COUNT = "cart/CLEAR_COUNT";
+export const ADD_ORDER = "/cart/ADD_ORDER";
+export const REMOVE_ORDER = "/cart/REMOVE_ORDER";
+export const CLEAR_ORDER = "/cart/CLEAR_ORDER";
+export const PRICE_INCREASE = "/cart/PRICE_INCREASE";
+export const PRICE_DECREASE = "/cart/PRICE_DECREASE";
+export const CLEAR_TOTAL_PRICE = "/cart/CLEAR_TOTAL_PRICE";
