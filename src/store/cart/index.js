@@ -1,5 +1,12 @@
 import { combineReducers } from "redux";
-import { COUNT_INCREMENT, COUNT_DECREMENT, UPDATE_ORDER } from "./constants";
+import {
+    COUNT_INCREMENT,
+    COUNT_DECREMENT,
+    ADD_ORDER,
+    REMOVE_ORDER,
+    PRICE_INCREASE,
+    PRICE_DECREASE,
+} from "./constants";
 
 const cartCountReducer = (state = 0, action) => {
     switch (action.type) {
@@ -14,7 +21,7 @@ const cartCountReducer = (state = 0, action) => {
 
 const cartOrderReducer = (state = [], action) => {
     switch (action.type) {
-        case UPDATE_ORDER:
+        case ADD_ORDER: {
             const { payload } = action;
             let exists = false;
 
@@ -34,6 +41,37 @@ const cartOrderReducer = (state = [], action) => {
             if (!exists) newOrder = [...newOrder, payload];
 
             return newOrder;
+        }
+        case REMOVE_ORDER: {
+            const { payload } = action;
+
+            let newOrder = state.flatMap((o) => {
+                if (o.id === payload.id) {
+                    if (o.quantity !== 1) {
+                        return {
+                            id: o.id,
+                            name: o.name,
+                            price: o.price,
+                            quantity: --o.quantity,
+                        };
+                    } else return [];
+                }
+                return o;
+            });
+
+            return newOrder;
+        }
+        default:
+            return state;
+    }
+};
+
+const cartTotalPriceReducer = (state = 0, action) => {
+    switch (action.type) {
+        case PRICE_INCREASE:
+            return state + action.payload;
+        case PRICE_DECREASE:
+            return state - action.payload;
         default:
             return state;
     }
@@ -42,6 +80,7 @@ const cartOrderReducer = (state = [], action) => {
 const cartReducer = combineReducers({
     cartCount: cartCountReducer,
     cartOrder: cartOrderReducer,
+    totalPrice: cartTotalPriceReducer,
 });
 
 export const cartIncrement = () => {
@@ -52,8 +91,20 @@ export const cartDecrement = () => {
     return { type: COUNT_DECREMENT };
 };
 
-export const cartUpdateOrder = (orderItem) => {
-    return { type: UPDATE_ORDER, payload: orderItem };
+export const cartAddOrder = (orderItem) => {
+    return { type: ADD_ORDER, payload: orderItem };
+};
+
+export const cartRemoveOrder = (orderItem) => {
+    return { type: REMOVE_ORDER, payload: orderItem };
+};
+
+export const cartTotalPriceIncrease = (itemPrice) => {
+    return { type: PRICE_INCREASE, payload: itemPrice };
+};
+
+export const cartTotalPriceDecrease = (itemPrice) => {
+    return { type: PRICE_DECREASE, payload: itemPrice };
 };
 
 export default cartReducer;

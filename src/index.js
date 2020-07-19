@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
+import Cart from "./pages/Cart";
 import store from "./store";
 import "normalize.css";
 import "./index.scss";
@@ -21,6 +22,9 @@ ReactDOM.render(
                 </Route>
                 <Route path="/contact">
                     <Contact />
+                </Route>
+                <Route path="/cart">
+                    <Cart />
                 </Route>
             </Switch>
         </Router>

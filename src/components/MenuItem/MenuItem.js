@@ -1,22 +1,27 @@
 import React from "react";
 import styles from "./MenuItem.module.scss";
 import { useSelector, useDispatch } from "react-redux";
-import { cartIncrement } from "../../store/cart";
-import { cartUpdateOrder } from "../../store/cart";
+import {
+    cartIncrement,
+    cartAddOrder,
+    cartTotalPriceIncrease,
+} from "../../store/cart";
 
 const MenuItem = ({ id, name, price, conversionConst }) => {
     const dispatch = useDispatch();
     const menuData = useSelector((state) => state.menu.menuData);
     const currencyType = useSelector((state) => state.currency.currencyType);
 
-    const cartItemCountIncrement = (id) => {
+    const handleClick = (id, price) => {
         dispatch(cartIncrement());
 
         let newOrderItem;
         menuData.forEach((e) => {
             if (e.id === id) newOrderItem = e;
         });
-        dispatch(cartUpdateOrder(newOrderItem));
+        dispatch(cartAddOrder(newOrderItem));
+
+        dispatch(cartTotalPriceIncrease(price));
     };
 
     return (
@@ -35,7 +40,7 @@ const MenuItem = ({ id, name, price, conversionConst }) => {
                     ).toFixed(1)}
                     {currencyType === "usd" ? "$" : "€"}
                 </div>
-                <button onClick={() => cartItemCountIncrement(id)}>
+                <button onClick={() => handleClick(id, price)}>
                     Add to cart
                 </button>
             </div>

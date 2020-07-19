@@ -10,7 +10,7 @@ const currencyTypeReducer = (state = "usd", action) => {
     }
 };
 
-const currencyConversionReducer = (state = 1, action) => {
+const currencyConversionReducer = (state = 0.88, action) => {
     switch (action.type) {
         case UPDATE_CONVERSION_CONST:
             return action.payload;
