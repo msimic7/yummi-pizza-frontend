@@ -5,14 +5,13 @@
     height: auto;
     width: 100vw;
     max-width: 100%;
-    background: url("../../resources/images/homeBg2.jpg") no-repeat top/cover;
+    background: url("../../resources/images/homeBg.jpg") no-repeat top/cover;
 }
 
 .ordernow {
     display: flex;
     min-height: 500px;
     height: calc(100vh - 80px);
-    display: none;
 
     &__content {
         flex-basis: 50%;
