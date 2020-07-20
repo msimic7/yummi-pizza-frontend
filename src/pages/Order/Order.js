@@ -53,11 +53,14 @@ const Order = () => {
                             placeholder="Name"
                             name="name"
                             id="name"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^[a-zA-Z]+$/,
+                            })}
                         />
                         {errors.name && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid name!
                             </p>
                         )}
                         <input
@@ -66,11 +69,14 @@ const Order = () => {
                             placeholder="Surname"
                             name="surname"
                             id="surname"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^[a-zA-Z]+$/,
+                            })}
                         />
                         {errors.surname && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid surname!
                             </p>
                         )}
                         <input
@@ -79,11 +85,14 @@ const Order = () => {
                             placeholder="Street"
                             name="street"
                             id="street"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^[a-zA-Z]+$/,
+                            })}
                         />
                         {errors.street && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid street name!
                             </p>
                         )}
                         <input
@@ -108,11 +117,14 @@ const Order = () => {
                             placeholder="City"
                             name="city"
                             id="city"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^[a-zA-Z]+$/,
+                            })}
                         />
                         {errors.city && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid city name!
                             </p>
                         )}
                         <input
