@@ -83,6 +83,7 @@ const Menu = () => {
             <div className={styles.menu}>
                 {Array.from(menuData).map((e) => (
                     <MenuItem
+                        key={e.id}
                         id={e.id}
                         name={e.name}
                         price={e.price}

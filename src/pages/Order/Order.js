@@ -92,11 +92,14 @@ const Order = () => {
                             placeholder="Street number"
                             name="streetNumber"
                             id="streetNumber"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^[0-9]+$/,
+                            })}
                         />
                         {errors.streetNumber && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid street number!
                             </p>
                         )}
                         <input
@@ -118,11 +121,14 @@ const Order = () => {
                             placeholder="Phone number"
                             name="phoneNumber"
                             id="phoneNumber"
-                            ref={register({ required: true })}
+                            ref={register({
+                                required: true,
+                                pattern: /^(\+?\d{1,4}[\s-])?(?!0+\s+,?$)\d{10}\s*,?$/,
+                            })}
                         />
                         {errors.phoneNumber && (
                             <p className={styles.order__field__error}>
-                                This field is required!
+                                Enter valid phone number!
                             </p>
                         )}
                         <button type="submit">ORDER</button>

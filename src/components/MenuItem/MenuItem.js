@@ -25,7 +25,7 @@ const MenuItem = ({ id, name, price, conversionConst }) => {
     };
 
     return (
-        <div className={styles.card} key={id}>
+        <div className={styles.card}>
             <div className={styles.pizza__name}>{name}</div>
 
             <img

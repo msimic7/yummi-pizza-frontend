@@ -1,5 +1,8 @@
-$breakpoint-tablet: 875px;
-$breakpoint-mobile: 575px;
+$breakpoint-smallscreenpc: 1280px;
+$breakpoint-tablet: 1070px;
+$breakpoint-mobile: 900px;
+$breakpoint-mobile1: 730px;
+$breakpoint-mobile2: 490px;
 
 .layout {
     overflow-x: hidden;
@@ -17,10 +20,10 @@ $breakpoint-mobile: 575px;
     position: fixed;
     right: 24px;
     bottom: 24px;
-    width: 104px;
-    height: 48px;
+    width: 80px;
+    height: 40px;
     display: flex;
-    font-size: 48px;
+    font-size: 40px;
 
     & div {
         display: flex;
@@ -56,8 +59,8 @@ $breakpoint-mobile: 575px;
 }
 
 .cart {
-    height: 96px;
-    width: 120px;
+    height: 88px;
+    width: 104px;
     position: fixed;
     top: 104px;
     right: 32px;
@@ -66,13 +69,13 @@ $breakpoint-mobile: 575px;
 
     &__item__count {
         padding: 0 4px;
-        font-size: 32px;
+        font-size: 24px;
         background: #eb993f;
         color: #000;
         position: absolute;
         border-radius: 2px;
-        left: 12px;
-        top: 12px;
+        left: 16px;
+        top: 16px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -93,32 +96,59 @@ $breakpoint-mobile: 575px;
     flex-wrap: wrap;
     width: 90%;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 56px;
     align-items: center;
     justify-content: center;
     padding-top: 100px;
 }
 
-@media (max-width: $breakpoint-tablet) {
-    .menu__h1 {
-        font-size: 80px;
-        margin: 32px 0;
-    }
+@media (max-width: $breakpoint-smallscreenpc) {
     .cart {
-        height: 64px;
-        width: 96px;
+        height: 56px;
+        width: 80px;
         top: 128px;
         right: 16px;
 
         &__item__count {
             font-size: 20px;
+            left: 8px;
+            top: 8px;
         }
     }
 
     .currency__picker {
-        width: 80px;
+        width: 72px;
         height: 32px;
-        font-size: 32px;
+        font-size: 24px;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+    .menu__h1 {
+        font-size: 88px;
+        margin: 32px 0;
+    }
+    .cart {
+        height: 56px;
+        width: 80px;
+        top: 128px;
+        right: 16px;
+
+        &__item__count {
+            font-size: 20px;
+            left: 8px;
+            top: 8px;
+        }
+    }
+
+    .currency__picker {
+        width: 72px;
+        height: 32px;
+        font-size: 24px;
+        right: 16px;
+        bottom: 16px;
     }
 }
 
@@ -129,25 +159,63 @@ $breakpoint-mobile: 575px;
     }
 
     .menu {
-        display: flex;
-        flex-wrap: wrap;
-        width: 90%;
-        margin: 0 auto;
-        margin-top: 100px;
-        align-items: center;
-        justify-content: center;
-        padding-top: 48px;
+        padding-top: 32px;
     }
 
     .cart {
-        top: 320px;
+        height: 56px;
+        width: 80px;
+        top: 128px;
         right: 16px;
+
+        &__item__count {
+            font-size: 20px;
+            left: 8px;
+            top: 8px;
+        }
+    }
+
+    .currency__picker {
+        width: 72px;
+        height: 32px;
+        font-size: 24px;
+        right: 16px;
+        bottom: 16px;
+    }
+}
+
+@media (max-width: $breakpoint-mobile1) {
+    .cart {
+        height: 48px;
+        width: 72px;
+        top: 128px;
+        right: 16px;
+
+        &__item__count {
+            font-size: 20px;
+            left: 4px;
+            top: 2px;
+        }
+    }
+
+    .currency__picker {
+        width: 56px;
+        height: 24px;
+        font-size: 20px;
+        right: 8px;
+        bottom: 8px;
+    }
+}
+
+@media (max-width: $breakpoint-mobile2) {
+    .cart {
         position: absolute;
+        top: 330px;
     }
 
     .currency__picker {
         position: absolute;
+        left: 16px;
         top: 340px;
-        left: 24px;
     }
 }
