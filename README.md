@@ -13,7 +13,11 @@ Pizza ordering test project.
 
 ------
 
-###### How to run
+###### How to run locally(no need for local backend):
 
 - npm install
 - npm start
+
+###### Demo
+
+- [Yummi Pizza](https://yummi-pizza-frontend.herokuapp.com/ "Yummi Pizza")
